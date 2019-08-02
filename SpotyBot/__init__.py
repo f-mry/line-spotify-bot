@@ -3,9 +3,6 @@ from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from SpotyBot.config import channel_access_token,channel_secret
-import base64
-import hmac
-import hashlib
 
 
 app = Flask(__name__)
