@@ -1,5 +1,5 @@
 # from SpotyBot.config import clientID, clientSecret
-from config import clientID, clientSecret
+from SpotyBot.config import clientID, clientSecret
 import requests, json
 from urllib.parse import urlencode
 from pprint import pprint
@@ -37,10 +37,10 @@ def searchMusic(keyword):
             'previewURL' : parsed.get('preview_url'),
             'trackName' : parsed.get('name'),
             'artist' : parsed.get('artists')[0].get('name'),
-            'trackImg' : parsed.get('album').get('images')[0].get('url'),
+            'trackImg' : parsed.get('album').get('images'),
             'album' : parsed.get('album')
             }
-    print(dataDict)
+    # print(dataDict)
     # print(parsed.keys())
 
     return dataDict
