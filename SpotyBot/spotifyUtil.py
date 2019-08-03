@@ -1,9 +1,6 @@
-# from SpotyBot.config import clientID, clientSecret
 from SpotyBot.config import clientID, clientSecret
 import requests, json
 from urllib.parse import urlencode
-from pprint import pprint
-
 
 grant_type = 'client_credentials'
 body_params = {'grant_type' : grant_type}
@@ -27,21 +24,19 @@ def searchMusic(keyword):
     authToken = getToken()
 
     response = requests.get(url,headers={'Authorization' : 'Bearer '+authToken}) 
+
     parsed = json.loads(response.content.decode('utf-8'))
     parsed = parsed.get('tracks').get('items')[0]
-    # print(json.dumps(parsed, indent=4, sort_keys=False))
     parsed.get('album').pop('available_markets')
 
     dataDict = {
             'trackURL' : parsed.get('external_urls').get('spotify'),
             'previewURL' : parsed.get('preview_url'),
-            'trackName' : parsed.get('name'),
-            'artist' : parsed.get('artists')[0].get('name'),
+            'trackTitle' : parsed.get('name'),
+            'trackArtist' : parsed.get('artists')[0].get('name'),
             'trackImg' : parsed.get('album').get('images'),
-            'album' : parsed.get('album')
+            'trackAlbum' : parsed.get('album')
             }
-    # print(dataDict)
-    # print(parsed.keys())
 
     return dataDict
     
