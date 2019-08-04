@@ -1,4 +1,4 @@
-from SpotyBot.config import clientID, clientSecret
+from SpotyBot.config import CLIENTID, CLIENTSECRET
 import requests, json
 from urllib.parse import urlencode
 

@@ -89,7 +89,6 @@ def textHandler(event):
     print("\n\n\n")
 
     flexMessage = prepareFlexMessage(data)
-    # lineBotApi.push_message(userId, FlexSendMessage(alt_text="Here is your search result", contents=flexMessage))
 
     lineBotApi.reply_message(
             event.reply_token,FlexSendMessage(alt_text="Here is your search result", contents=flexMessage)
