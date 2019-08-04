@@ -1,4 +1,4 @@
-from SpotyBot.config import clientID, clientSecret
+from SpotyBot.config import CLIENTID, CLIENTSECRET
 import requests, json
 from urllib.parse import urlencode
 
@@ -7,7 +7,7 @@ body_params = {'grant_type' : grant_type}
 url = 'https://accounts.spotify.com/api/token'
 
 def getToken():
-    response = requests.post(url, data=body_params, auth = (clientID, clientSecret)) 
+    response = requests.post(url, data=body_params, auth = (CLIENTID, CLIENTSECRET)) 
     tokenRaw = json.loads(response.text)
     return tokenRaw['access_token']
 

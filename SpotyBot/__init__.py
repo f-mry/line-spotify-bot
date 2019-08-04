@@ -6,9 +6,9 @@ from SpotyBot.config import channel_access_token,channel_secret
 
 app = Flask(__name__)
 
-lineBotApi = LineBotApi(channel_access_token)
-parser = WebhookParser(channel_secret)
-handler = WebhookHandler(channel_secret)
+lineBotApi = LineBotApi(CHANNEL_ACCESS_TOKEN)
+parser = WebhookParser(CHANNEL_SECRET)
+handler = WebhookHandler(CHANNEL_SECRET)
 
 from SpotyBot import handlerModule
 
@@ -25,7 +25,6 @@ def callback():
     app.logger.info("\nRequest Body: "+body)
 
     try:
-        # events = parser.parse(body,signature)
         handler.handle(body,signature)
     except InvalidSignatureError as e:
         abort(400)
