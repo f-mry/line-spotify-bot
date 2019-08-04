@@ -1,7 +1,7 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookParser, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from SpotyBot.config import channel_access_token,channel_secret
+from SpotyBot.config import CHANNEL_ACCESS_TOKEN,CHANNEL_SECRET
 
 
 app = Flask(__name__)
